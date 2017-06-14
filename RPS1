@@ -1,0 +1,24 @@
+library(tidyverse)
+
+x <- c("Day 1 - 2016", "Day 1 - 2017", "Day 2 - 2016", "Day 2 - 2017")
+y <- c(117, 115, 105, 117)
+
+df <- data.frame(x, y)
+
+g <- ggplot(df, aes(x, y))
+
+g + geom_bar(stat = "identity", fill = rainbow(4))
+
+g + geom_bar(stat = "identity", fill = c("indianred1", "steelblue1",
+  "indianred1", "steelblue1")) + 
+  annotate("text", x = 1, y = 100, label = "117", size = 5) + 
+  annotate("text", x = 2, y = 100, label = "115", size = 5) +
+  annotate("text", x = 3, y = 100, label = "105", size = 5) +
+  annotate("text", x = 4, y = 100, label = "117", size = 5) +
+  labs(x = "Summit Date", y = "Attendance") +
+  labs(title = "Rural Summit Attendance By Year", 
+  subtitle = "Increase of 4.5% from 2016-2017") +
+  theme(plot.title = element_text(hjust = 0.5, family = "Times", face = "bold"))+
+  theme(plot.subtitle=element_text(hjust = 0.5)) +
+  png("061417_1.png") 
+  dev.off()
