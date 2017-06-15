@@ -7,8 +7,6 @@ df <- data.frame(x, y)
 
 g <- ggplot(df, aes(x, y))
 
-g + geom_bar(stat = "identity", fill = rainbow(4))
-
 g + geom_bar(stat = "identity", fill = c("indianred1", "steelblue1",
   "indianred1", "steelblue1")) + 
   annotate("text", x = 1, y = 100, label = "117", size = 5) + 
